@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=WebYaST Applet
+Exec=qwebyast
+Icon=qwebyast
+Type=Application
+Terminal=0
+Categories=Qt;KDE;System;Applet;
+#OnlyShowIn=KDE;
+

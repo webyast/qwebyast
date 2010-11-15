@@ -28,7 +28,7 @@ Yast::Yast()
 	// create system tray 
 	tray = new QSystemTrayIcon();
 	tray->setContextMenu(menu);
-	tray->setIcon(QIcon(WEBYAST_DOWN_ICON));
+	tray->setIcon(QIcon::fromTheme(WEBYAST_DOWN_ICON));
 	tray->show();
 
 
@@ -46,13 +46,13 @@ void Yast::slotUpdateStatus()
 {
 	if ( isYastRunning() )
 	{
-		tray->setIcon(QIcon(WEBYAST_UP_ICON)); 
+		tray->setIcon(QIcon::fromTheme(WEBYAST_UP_ICON)); 
 		enableYastAction->setChecked(true);
 		runBrowserAction->setEnabled(true);
 	}
 	else
 	{
-		tray->setIcon(QIcon(WEBYAST_DOWN_ICON));
+		tray->setIcon(QIcon::fromTheme(WEBYAST_DOWN_ICON));
 		enableYastAction->setChecked(false);
 		runBrowserAction->setEnabled(false);
 	}

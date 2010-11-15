@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 /usr/share/icons/hicolor/16x16/apps/qwebyast/pics/qwebyast-disabled.png
 /usr/share/icons/hicolor/16x16/apps/qwebyast/pics/qwebyast-enabled.png
-/usr/share/icons/hicolor/16x16/apps/qwebyast/pics/qwebyast.png
+/usr/share/icons/hicolor/16x16/apps/qwebyast.png
 /usr/bin/qwebyast
 /usr/share/applications/qwebyast.desktop
 /etc/xdg/autostart/qwebyast-autostart.desktop

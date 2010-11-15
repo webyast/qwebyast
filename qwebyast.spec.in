@@ -60,6 +60,9 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/icons/hicolor/16x16/apps/qwebyast/pics/qwebyast-disabled.png
 /usr/share/icons/hicolor/16x16/apps/qwebyast/pics/qwebyast-enabled.png
 /usr/share/icons/hicolor/16x16/apps/qwebyast.png
+/usr/share/icons/hicolor/32x32/apps/qwebyast.png
+/usr/share/icons/hicolor/48x48/apps/qwebyast.png
+/usr/share/pixmaps/qwebyast.png
 /usr/bin/qwebyast
 /usr/share/applications/qwebyast.desktop
 /etc/xdg/autostart/qwebyast-autostart.desktop

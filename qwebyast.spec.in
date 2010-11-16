@@ -44,10 +44,6 @@ cd build
 cd ..
 
 
-%suse_update_desktop_file -N "WebYaST Applet"  qwebyast.desktop
-%suse_update_desktop_file qwebyast-autostart.desktop
-
-
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig

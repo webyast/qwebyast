@@ -10,7 +10,6 @@ int main(int argc, char *argv[])
 	QApplication::setQuitOnLastWindowClosed(false);
 
 	Yast yast;
-	yast.hide();
 
 	return app.exec();
 }

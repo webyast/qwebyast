@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <QSystemTrayIcon>
 #include <QProcess>
+#include <QtWebKit>
+
 
 
 class Yast : public QDialog
@@ -16,6 +18,7 @@ private:
 	QSystemTrayIcon *tray;
 	QAction *enableYastAction;
 	QAction *runBrowserAction;
+	QWebView *web;
 
 	bool isYastRunning();
 	bool isFirefoxAvailable();
@@ -27,6 +30,9 @@ private slots:
 	void slotHelperFinished( int exitCode, QProcess::ExitStatus exitStatus );
 	void slotHelperError( QProcess::ProcessError error );
 	void slotUpdateStatus();
+        void slotSslErrorHandler( QNetworkReply *  reply,const QList<QSslError> &  errorList);
+	void slotTrayActivated ( QSystemTrayIcon::ActivationReason reason );
+
 
 };
 

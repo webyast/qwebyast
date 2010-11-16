@@ -10,18 +10,20 @@
 Yast::Yast()
 {
 
+
 	// create context menu
 	QMenu *menu = new QMenu;
 	enableYastAction = new QAction("Enable WebYaST", menu);
-	enableYastAction->setCheckable(true);
-	menu->addAction(enableYastAction);
+	enableYastAction->setCheckable(true); menu->addAction(enableYastAction);
 	connect(enableYastAction, SIGNAL(triggered()), this, SLOT( slotEnableYast()));
 
 	runBrowserAction = new QAction("Start WebYaST Browser", menu);
   	connect(runBrowserAction, SIGNAL(triggered()), this, SLOT( slotRunBrowser()));
 
+#ifdef USE_EXTERNAL_BROWSER
 	if ( isFirefoxAvailable() )
 		menu->addAction(runBrowserAction);
+#endif
 
 	menu->addAction("&Quit", qApp, SLOT( quit () ));
 	
@@ -38,8 +40,46 @@ Yast::Yast()
 	timer->start(UPDATE_INTERVAL);
 
 
+#ifndef USE_EXTERNAL_BROWSER
+	web = new QWebView(this);
+     	web->load(QUrl(BROWSER_URL));
+
+	connect (tray, SIGNAL (activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayActivated ( QSystemTrayIcon::ActivationReason)));
+
+	connect ( web->page()->networkAccessManager(), SIGNAL (sslErrors (QNetworkReply*, const QList<QSslError> & ) ),
+		 this, SLOT ( slotSslErrorHandler( QNetworkReply*, const QList<QSslError> & )));
+
+	QHBoxLayout *layout = new QHBoxLayout;
+	layout->addWidget(web);
+	this->setLayout(layout);
+	setWindowTitle("WebYaST");
+	setWindowIcon(QIcon::fromTheme((WEBYAST_UP_ICON), QIcon(QString(WEBYAST_ICON_PATH) + QString(WEBYAST_UP_ICON))));
+     	web->show();
+#endif
+
 	slotUpdateStatus();
+	hide();
 }
+
+
+void Yast::slotTrayActivated ( QSystemTrayIcon::ActivationReason reason )
+{
+	if ( QSystemTrayIcon::Trigger == reason )
+	{
+		if (isVisible())
+			hide();
+		else
+			show();
+	}
+}
+
+void Yast::slotSslErrorHandler( QNetworkReply *  reply,const QList<QSslError> &  errorList)
+{        
+#ifdef IGNORE_SSL_ERRORS
+	reply->ignoreSslErrors();
+#endif
+}
+
 
 
 void Yast::slotUpdateStatus()

@@ -9,4 +9,4 @@ X-KDE-StartupNotify=false
 #X-KDE-autostart-condition=qwebyastrc:General:Autostart:true
 X-KDE-autostart-after=panel
 Categories=Qt;KDE;System;Applet;
-#OnlyShowIn=KDE
+OnlyShowIn=KDE

@@ -53,8 +53,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(-,root,root)
-/usr/share/icons/hicolor/16x16/apps/qwebyast/pics/qwebyast-disabled.png
-/usr/share/icons/hicolor/16x16/apps/qwebyast/pics/qwebyast-enabled.png
+/usr/share/icons/hicolor/32x32/apps/qwebyast/pics/qwebyast-disabled.png
+/usr/share/icons/hicolor/32x32/apps/qwebyast/pics/qwebyast-enabled.png
 /usr/share/icons/hicolor/16x16/apps/qwebyast.png
 /usr/share/icons/hicolor/32x32/apps/qwebyast.png
 /usr/share/icons/hicolor/48x48/apps/qwebyast.png

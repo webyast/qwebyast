@@ -1,9 +1,14 @@
 -------------------------------------------------------------------
+Wed Nov 17 15:23:07 CET 2010 - tgoettlicher@suse.de
+
+- reverted back to firefox
+- V 0.0.7
+
+-------------------------------------------------------------------
 Tue Nov 16 17:08:48 CET 2010 - tgoettlicher@suse.de
 
 - show webyast in own window instead of running firefox
-- V 0.0. 6
-
+- V 0.0.6
 
 -------------------------------------------------------------------
 Tue Nov 16 12:08:50 CET 2010 - tgoettlicher@suse.de

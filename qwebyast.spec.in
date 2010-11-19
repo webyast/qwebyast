@@ -20,7 +20,7 @@ Release:        1
 URL:            http://en.opensuse.org/
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Source0:        %{name}-%{version}.tar.bz2
-#BuildRequires:  update-desktop-files 
+BuildRequires:  update-desktop-files 
 
 
 %description
@@ -45,6 +45,10 @@ cd build
 cd ..
 
 
+%suse_update_desktop_file -n $RPM_BUILD_ROOT/usr/share/applications/chrome-webyast.desktop
+%suse_update_desktop_file -n $RPM_BUILD_ROOT/usr/share/applications/chromium-webyast.desktop
+
+
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
@@ -54,6 +58,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(-,root,root)
+
+%dir /usr/share/icons/hicolor
+%dir /usr/share/icons/hicolor/16x16
+%dir /usr/share/icons/hicolor/16x16/apps
+%dir /usr/share/icons/hicolor/32x32
+%dir /usr/share/icons/hicolor/32x32/apps
+%dir /usr/share/icons/hicolor/32x32/apps/qwebyast
+%dir /usr/share/icons/hicolor/32x32/apps/qwebyast/pics
+%dir /usr/share/icons/hicolor/48x48
+%dir /usr/share/icons/hicolor/48x48/apps
 /usr/share/icons/hicolor/32x32/apps/qwebyast/pics/qwebyast-disabled.png
 /usr/share/icons/hicolor/32x32/apps/qwebyast/pics/qwebyast-enabled.png
 /usr/share/icons/hicolor/16x16/apps/qwebyast.png
@@ -66,5 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/applications/chromium-webyast.desktop
 %config /etc/xdg/autostart/qwebyast-autostart.desktop
 /usr/bin/webyast.sh
+
+  
 
 %changelog

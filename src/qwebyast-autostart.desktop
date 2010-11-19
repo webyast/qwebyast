@@ -4,7 +4,6 @@ Exec=qwebyast
 Terminal=false
 Name=WebYaST Applet
 Icon=qwebyast
-
 X-KDE-StartupNotify=false
 #X-KDE-autostart-condition=qwebyastrc:General:Autostart:true
 X-KDE-autostart-after=panel

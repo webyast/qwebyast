@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Fri Nov 19 16:05:51 CET 2010 - tgoettlicher@suse.de
+
+- sle11sp1 enabled
+- V 0.0.9
+
+-------------------------------------------------------------------
 Fri Nov 19 13:46:57 CET 2010 - tgoettlicher@suse.de
 
 - removed webkit dependency

@@ -1,7 +1,8 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.0
-Name=Google
+GenericName=WebYaST
+Name=WebYaST
 Exec=/opt/google/chrome/google-chrome --app="https://localhost:54984"
 Terminal=false
 Icon=qwebyast

@@ -59,7 +59,7 @@ void Yast::slotTrayActivated ( QSystemTrayIcon::ActivationReason reason )
 
 void Yast::slotUpdateStatus()
 {
-	if ( isYastRunning() || true )
+	if ( isYastRunning() )
 	{
 		tray->setIcon(QIcon::fromTheme((WEBYAST_UP_ICON), QIcon(QString(WEBYAST_ICON_PATH) + QString(WEBYAST_UP_ICON)))); 
 		enableYastAction->setChecked(true);

@@ -30,6 +30,8 @@ target_link_libraries( qwebyast_bin ${QT_LIBRARIES}  )
 install(TARGETS qwebyast_bin DESTINATION ${BIN_INSTALL_DIR})
 
 
+install(FILES chromium-webyast.desktop DESTINATION /usr/share/applications )
+install(FILES chrome-webyast.desktop DESTINATION /usr/share/applications )
 install(FILES qwebyast.desktop DESTINATION /usr/share/applications )
 install(FILES qwebyast-autostart.desktop DESTINATION "/etc/xdg/autostart")
 

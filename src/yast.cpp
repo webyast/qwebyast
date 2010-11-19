@@ -5,6 +5,7 @@
 #include <QFile>
 #include "yast.h"
 #include "constants.h"
+#include <QDesktopServices>
 
 
 Yast::Yast()
@@ -84,7 +85,7 @@ void Yast::slotSslErrorHandler( QNetworkReply *  reply,const QList<QSslError> & 
 
 void Yast::slotUpdateStatus()
 {
-	if ( isYastRunning() )
+	if ( isYastRunning() || true )
 	{
 		tray->setIcon(QIcon::fromTheme((WEBYAST_UP_ICON), QIcon(QString(WEBYAST_ICON_PATH) + QString(WEBYAST_UP_ICON)))); 
 		enableYastAction->setChecked(true);
@@ -107,15 +108,35 @@ bool Yast::isYastRunning()
 
 void Yast::slotRunBrowser()
 {
-	QProcess* helperprocess = new QProcess(this);
-        connect( helperprocess, SIGNAL(finished(int, QProcess::ExitStatus)), SLOT(slotHelperFinished(int, QProcess::ExitStatus)));
-        connect( helperprocess, SIGNAL(error(QProcess::ProcessError)), SLOT(slotHelperError( QProcess::ProcessError )));
-	helperprocess->start(QString(BROWSER_CMD) + QString(" ") + QString(BROWSER_URL) );
+	QString cmd;
+	
+	// figure out which browser is available and pick one 
+	if ( isChromeAvailable() )
+		cmd = CHROME_CMD;
+	else if ( isChromeiumAvailable() )
+		cmd = CHROMIUM_CMD;
+	else if ( isFirefoxAvailable() )
+		cmd = FIREFOX_CMD;
+
+	if (!cmd.isEmpty())
+	{
+		QProcess* helperprocess = new QProcess(this);
+	        connect( helperprocess, SIGNAL(finished(int, QProcess::ExitStatus)), SLOT(slotHelperFinished(int, QProcess::ExitStatus)));
+	        connect( helperprocess, SIGNAL(error(QProcess::ProcessError)), SLOT(slotHelperError( QProcess::ProcessError )));
+		helperprocess->start(cmd);
+	}
+	else
+	{
+		QDesktopServices::openUrl ( QUrl(BROWSER_URL) );
+	}
 }
+
 
 
 void Yast::slotEnableYast()
 {
+
+
 	QProcess* helperprocess = new QProcess(this);
         connect( helperprocess, SIGNAL(finished(int, QProcess::ExitStatus)), SLOT(slotHelperFinished(int, QProcess::ExitStatus)));
         connect( helperprocess, SIGNAL(error(QProcess::ProcessError)), SLOT(slotHelperError( QProcess::ProcessError )));
@@ -153,12 +174,33 @@ void Yast::slotHelperError( QProcess::ProcessError error  )
 	QMessageBox::critical(this,"Error running process.", "An error happend while running a helper process. " + reason);
 }
 
+
+bool Yast::isApplicationAvailable(QString location)
+{
+	QFile file(location);
+	return file.exists();
+}
+
 bool Yast::isFirefoxAvailable()
 {
-	QFile file(BROWSER_CMD);
-	return file.exists();
+	return isApplicationAvailable(FIREFOX_BIN);
 
 }
+
+bool Yast::isChromeAvailable()
+{
+	return isApplicationAvailable(CHROME_BIN);
+
+}
+
+bool Yast::isChromeiumAvailable()
+{
+	return isApplicationAvailable(CHROMIUM_BIN);
+
+}
+
+
+
 
 
 #include "yast.moc"

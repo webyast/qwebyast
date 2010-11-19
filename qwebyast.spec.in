@@ -62,6 +62,8 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/pixmaps/qwebyast.png
 /usr/bin/qwebyast
 /usr/share/applications/qwebyast.desktop
+/usr/share/applications/chrome-webyast.desktop
+/usr/share/applications/chromium-webyast.desktop
 %config /etc/xdg/autostart/qwebyast-autostart.desktop
 /usr/bin/webyast.sh
 

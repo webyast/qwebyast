@@ -21,7 +21,10 @@ private:
 	QWebView *web;
 
 	bool isYastRunning();
+	bool isApplicationAvailable(QString location);
 	bool isFirefoxAvailable();
+	bool isChromeAvailable();
+	bool isChromeiumAvailable();
 
 
 private slots:

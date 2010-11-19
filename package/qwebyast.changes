@@ -1,4 +1,11 @@
 -------------------------------------------------------------------
+Fri Nov 19 13:46:57 CET 2010 - tgoettlicher@suse.de
+
+- removed webkit dependency
+- improved browser detection
+- V 0.0.8
+
+-------------------------------------------------------------------
 Wed Nov 17 15:23:07 CET 2010 - tgoettlicher@suse.de
 
 - reverted back to firefox

@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Name=Google
+Exec=/usr/bin/chromium --app="https://localhost:54984"
+Terminal=false
+Icon=qwebyast
+Type=Application
+Categories=Network;WebBrowser;

@@ -1,16 +1,15 @@
 #include <QtGui>
 #include <QSystemTrayIcon>
 #include <QTimer>
+#include <QDesktopServices>
 #include <QDebug>
 #include <QFile>
 #include "yast.h"
 #include "constants.h"
-#include <QDesktopServices>
 
 
 Yast::Yast()
 {
-
 
 	// create context menu
 	QMenu *menu = new QMenu;
@@ -20,12 +19,7 @@ Yast::Yast()
 
 	runBrowserAction = new QAction("Start WebYaST Browser", menu);
   	connect(runBrowserAction, SIGNAL(triggered()), this, SLOT( slotRunBrowser()));
-
-#ifdef USE_EXTERNAL_BROWSER
-	if ( isFirefoxAvailable() )
-		menu->addAction(runBrowserAction);
-#endif
-
+	menu->addAction(runBrowserAction);
 	menu->addAction("&Quit", qApp, SLOT( quit () ));
 	
 	// create system tray 
@@ -34,29 +28,17 @@ Yast::Yast()
 	tray->setIcon(QIcon::fromTheme(QString(WEBYAST_DOWN_ICON), QIcon(QString(WEBYAST_ICON_PATH) + QString(WEBYAST_DOWN_ICON))));
 	tray->show();
 
-
 	// create status updater
 	QTimer *timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(slotUpdateStatus()));
 	timer->start(UPDATE_INTERVAL);
 
-
-#ifndef USE_EXTERNAL_BROWSER
-	web = new QWebView(this);
-     	web->load(QUrl(BROWSER_URL));
-
 	connect (tray, SIGNAL (activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayActivated ( QSystemTrayIcon::ActivationReason)));
 
-	connect ( web->page()->networkAccessManager(), SIGNAL (sslErrors (QNetworkReply*, const QList<QSslError> & ) ),
-		 this, SLOT ( slotSslErrorHandler( QNetworkReply*, const QList<QSslError> & )));
-
 	QHBoxLayout *layout = new QHBoxLayout;
-	layout->addWidget(web);
 	this->setLayout(layout);
 	setWindowTitle("WebYaST");
 	setWindowIcon(QIcon::fromTheme((WEBYAST_UP_ICON), QIcon(QString(WEBYAST_ICON_PATH) + QString(WEBYAST_UP_ICON))));
-     	web->show();
-#endif
 
 	slotUpdateStatus();
 	hide();
@@ -73,14 +55,6 @@ void Yast::slotTrayActivated ( QSystemTrayIcon::ActivationReason reason )
 			show();
 	}
 }
-
-void Yast::slotSslErrorHandler( QNetworkReply *  reply,const QList<QSslError> &  errorList)
-{        
-#ifdef IGNORE_SSL_ERRORS
-	reply->ignoreSslErrors();
-#endif
-}
-
 
 
 void Yast::slotUpdateStatus()
@@ -159,9 +133,9 @@ void Yast::slotHelperFinished(int exitCode, QProcess::ExitStatus exitStatus)
 		return;
 	}
 
-        qDebug() << ". helper process finished:";
-        qDebug() << "  helper exit code: " << exitCode;
-        qDebug() << "  helper exit status: " << exitStatus;
+        //qDebug() << ". helper process finished:";
+        //qDebug() << "  helper exit code: " << exitCode;
+        //qDebug() << "  helper exit status: " << exitStatus;
 }
 
 

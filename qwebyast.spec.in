@@ -10,7 +10,7 @@
 
 Name:           @PACKAGE@
 BuildRequires:  libqt4-devel
-BuildRequires:  libQtWebKit-devel
+#BuildRequires:  libQtWebKit-devel
 BuildRequires:  cmake >= 2.4.6
 License:        GPL
 Group:          System/Management

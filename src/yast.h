@@ -4,7 +4,6 @@
 #include <QDialog>
 #include <QSystemTrayIcon>
 #include <QProcess>
-#include <QtWebKit>
 
 
 
@@ -18,7 +17,6 @@ private:
 	QSystemTrayIcon *tray;
 	QAction *enableYastAction;
 	QAction *runBrowserAction;
-	QWebView *web;
 
 	bool isYastRunning();
 	bool isApplicationAvailable(QString location);
@@ -33,9 +31,7 @@ private slots:
 	void slotHelperFinished( int exitCode, QProcess::ExitStatus exitStatus );
 	void slotHelperError( QProcess::ProcessError error );
 	void slotUpdateStatus();
-        void slotSslErrorHandler( QNetworkReply *  reply,const QList<QSslError> &  errorList);
 	void slotTrayActivated ( QSystemTrayIcon::ActivationReason reason );
-
 
 };
 

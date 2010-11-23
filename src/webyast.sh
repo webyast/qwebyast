@@ -11,8 +11,8 @@ case "$1" in
     ;;
     status)
 
-	WS=`ps -ef | grep "/usr/sbin/lighttpd -f /etc/yastws/" | grep -v grep | wc -l`
-	WC=`ps -ef | grep "/usr/sbin/lighttpd -f /srv/www/yast/config/lighttpd.conf" | grep -v grep | wc -l`
+	WS=`ps -ef | grep -E "(/usr/sbin/lighttpd -f /etc/yastws/|/usr/sbin/nginx -c /etc/yastws/nginx.conf)" | grep -v grep | wc -l`
+	WC=`ps -ef | grep -E "(/usr/sbin/lighttpd -f /srv/www/yast/config/lighttpd.conf|/usr/sbin/nginx -c /etc/yastwc/nginx.conf)" | grep -v grep | wc -l`
 	
 	if [ $WS -eq 1 ] && [ $WC -eq 1 ]; then
 		RETVAL=0

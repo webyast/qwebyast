@@ -47,13 +47,8 @@ Yast::Yast()
 
 void Yast::slotTrayActivated ( QSystemTrayIcon::ActivationReason reason )
 {
-	if ( QSystemTrayIcon::Trigger == reason )
-	{
-		if (isVisible())
-			hide();
-		else
-			show();
-	}
+	if ( ( QSystemTrayIcon::Trigger == reason ) && enableYastAction->isChecked() )
+		slotRunBrowser();
 }
 
 

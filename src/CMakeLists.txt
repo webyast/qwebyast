@@ -15,6 +15,8 @@ set(qwebyast_SRCS
 	main.cpp
 	yast.cpp
 	yast.h
+	app.h
+	app.cpp
 	constants.h
 )
 

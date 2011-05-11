@@ -2,11 +2,11 @@
 
 case "$1" in
     start)
-	/usr/sbin/rcyastws start && /usr/sbin/rcyastwc start
+	/usr/sbin/rcyastws start && /usr/sbin/rcyastwc start && /usr/sbin/rccollectd start
 	RETVAL=$?
    ;;
     stop)
-	/usr/sbin/rcyastws stop && /usr/sbin/rcyastwc stop
+	/usr/sbin/rcyastws stop && /usr/sbin/rcyastwc stop && /usr/sbin/rccollectd stop
 	RETVAL=$?
     ;;
     status)

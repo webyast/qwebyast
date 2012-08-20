@@ -17,7 +17,7 @@ Group:          System/Management
 Summary:        WebYaST Desktop Applet
 Version:        @VERSION@
 Release:        1
-URL:            http://en.opensuse.org/
+URL:            https://github.com/webyast/qwebyast
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Source0:        %{name}-%{version}.tar.bz2
 BuildRequires:  update-desktop-files 

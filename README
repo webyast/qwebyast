@@ -1,5 +1,11 @@
-SUSE Updater 0.1
-Narayan Newton <narayannewton@gmail.com>
-----------------------------------------------------------------------
+QWebYaST Applet
+---------------
 
-This is a KDE updater applet for SUSE Linux. It currently supports the ZenWorks backend only, but should support multiple backends, including zypp and smart, in the future.
+This is a Qt based desktop applet for controlling WebYaST on the local machine.
+(Although based on QT it can be used also in other desktops like GNOME...)
+
+It can start or stop WebYaST instance on the local machine or open WebYaST in a web browser.
+
+It is intended for users who want to use WebYaST on the local machine but do not want to
+keep it running all the time and just start it when needed.
+

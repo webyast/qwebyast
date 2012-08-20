@@ -6,6 +6,5 @@ This is a Qt based desktop applet for controlling WebYaST on the local machine.
 
 It can start or stop WebYaST instance on the local machine or open WebYaST in a web browser.
 
-It is intended for users who want to use WebYaST on the local machine but do not want to
-keep it running all the time and just start it when needed.
+It is intended for users who want to use WebYaST on the local machine but do not want to keep it running all the time and just start it when needed.
 

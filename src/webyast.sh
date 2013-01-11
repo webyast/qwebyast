@@ -12,7 +12,7 @@ case "$1" in
 	RETVAL=$?
     ;;
     status)
-        WY=`pgrep -c -f /usr/bin/nginx`
+        WY=`pgrep -c -f "/usr/sbin/nginx -c /etc/webyast/nginx.conf"`
 	
 	if [ $WY -eq 0 ]; then
 		RETVAL=3

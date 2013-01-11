@@ -2,11 +2,13 @@
 
 case "$1" in
     start)
-	/usr/sbin/rcwebyast start && /usr/sbin/rccollectd start
+	/usr/sbin/rccollectd start
+	/usr/sbin/rcwebyast start
 	RETVAL=$?
    ;;
     stop)
-	/usr/sbin/rcwebyast stop && /usr/sbin/rccollectd stop
+	/usr/sbin/rccollectd stop
+	/usr/sbin/rcwebyast stop
 	RETVAL=$?
     ;;
     status)

@@ -1,4 +1,12 @@
 -------------------------------------------------------------------
+Tue Jan 15 15:09:35 UTC 2013 - lslezak@suse.cz
+
+- updated desktop files (wrong port number) (bnc#790286)
+- updated start script to work with the initscript (merged
+  services)
+- 0.0.14
+
+-------------------------------------------------------------------
 Tue Sep 20 11:22:26 CEST 2011 - tgoettlicher@suse.de
 
 - fixed license

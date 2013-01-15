@@ -3,7 +3,7 @@
 Version=1.0
 GenericName=WebYaST
 Name=WebYaST
-Exec=/opt/google/chrome/google-chrome --app="https://localhost:54984"
+Exec=/opt/google/chrome/google-chrome --app="https://localhost:4984"
 Terminal=false
 Icon=qwebyast
 Type=Application

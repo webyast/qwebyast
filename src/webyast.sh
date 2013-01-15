@@ -2,22 +2,22 @@
 
 case "$1" in
     start)
-	/usr/sbin/rcyastws start && /usr/sbin/rcyastwc start && /usr/sbin/rccollectd start
+	/usr/sbin/rccollectd start
+	/usr/sbin/rcwebyast start
 	RETVAL=$?
    ;;
     stop)
-	/usr/sbin/rcyastws stop && /usr/sbin/rcyastwc stop && /usr/sbin/rccollectd stop
+	/usr/sbin/rccollectd stop
+	/usr/sbin/rcwebyast stop
 	RETVAL=$?
     ;;
     status)
-
-	WS=`ps -ef | grep -E "(/usr/sbin/lighttpd -f /etc/yastws/|/usr/sbin/nginx -c /etc/yastws/nginx.conf)" | grep -v grep | wc -l`
-	WC=`ps -ef | grep -E "(/usr/sbin/lighttpd -f /srv/www/yast/config/lighttpd.conf|/usr/sbin/nginx -c /etc/yastwc/nginx.conf)" | grep -v grep | wc -l`
+        WY=`pgrep -c -f "/usr/sbin/nginx -c /etc/webyast/nginx.conf"`
 	
-	if [ $WS -eq 1 ] && [ $WC -eq 1 ]; then
-		RETVAL=0
-	else
+	if [ $WY -eq 0 ]; then
 		RETVAL=3
+	else
+		RETVAL=0
 	fi
     ;;
 esac

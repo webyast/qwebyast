@@ -27,7 +27,7 @@
 #define WEBYAST_CHECK_CMD	"/usr/bin/webyast.sh status"
 #define WEBYAST_UP_CMD		"kdesu /usr/bin/webyast.sh start"
 #define WEBYAST_DOWN_CMD	"kdesu /usr/bin/webyast.sh stop"
-#define BROWSER_URL		"https://localhost:4984"
+#define BROWSER_URL		"https://localhost:54984"
 #define UPDATE_INTERVAL		15000
 #define USE_EXTERNAL_BROWSER	1
 #define IGNORE_SSL_ERRORS	1
@@ -36,4 +36,4 @@
 #define FIREFOX_BIN		"/usr/bin/firefox"
 #define CHROME_CMD		"/usr/bin/env xdg-open /usr/share/applications/chrome-webyast.desktop"
 #define CHROMIUM_CMD		"/usr/bin/env xdg-open /usr/share/applications/chromium-webyast.desktop"
-#define FIREFOX_CMD		"/usr/bin/firefox https://localhost:4984"
+#define FIREFOX_CMD		"/usr/bin/firefox https://localhost:54984"

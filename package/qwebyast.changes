@@ -1,10 +1,13 @@
 -------------------------------------------------------------------
-Tue Jan 15 15:09:35 UTC 2013 - lslezak@suse.cz
+Thu Dec  8 11:22:58 UTC 2011 - coolo@suse.com
 
-- updated desktop files (wrong port number) (bnc#790286)
-- updated start script to work with the initscript (merged
-  services)
-- 0.0.14
+- the license of the files seem to be "version 2 or version 3", not
+  a general GPL
+
+-------------------------------------------------------------------
+Tue Oct 25 13:59:13 UTC 2011 - schubi@suse.com
+
+- merging client and service 
 
 -------------------------------------------------------------------
 Tue Sep 20 11:22:26 CEST 2011 - tgoettlicher@suse.de
